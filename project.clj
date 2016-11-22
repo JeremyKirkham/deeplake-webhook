@@ -16,5 +16,6 @@
                                    com.amazonaws/amazon-kinesis-client]]]
   :plugins [[lein-cloverage "1.0.7"]]
   :main handler/-handler
+  :aot :all
   :jar-name "deeplakeWebhookEventHandler.jar"
   :uberjar-name "deeplakeWebhookEventHandler-standalone.jar")
