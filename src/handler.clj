@@ -17,7 +17,7 @@
   (let [event (cheshire.core/parse-stream (io/reader in) true)
         res (run event)]
     (with-open [w (io/writer out)]
-      (json/write response w))))
+      (json/write {"event" event} w))))
 
 ; Test data for running the handler locally.
 (def test-event
