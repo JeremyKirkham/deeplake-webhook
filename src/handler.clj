@@ -7,7 +7,7 @@
 
 (defn run
   [event]
-  (let [response "This is a response"]
+  (let [response event]
     response))
 
 (deflambdafn deeplake-webhook.run
