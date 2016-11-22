@@ -9,7 +9,7 @@
   "Function that kicks off the event handling"
   [event]
   (let [response event]
-    (str response)))
+    response))
 
 (deflambdafn deeplake-webhook.run
   [in out ctx]
@@ -17,7 +17,7 @@
         res (run event)]
     ; (with-open [w (io/writer out)]
       ; (cheshire.core/generate-string res w)))
-    (str res)))
+    (println res)))
 
 ; Test data for running the handler locally.
 (def test-event
