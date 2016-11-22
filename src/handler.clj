@@ -6,6 +6,7 @@
     [cheshire.core]))
 
 (defn run
+  "Function that kicks off the event handling"
   [event]
   (let [response event]
     response))
@@ -29,6 +30,7 @@
    :stage-variables {:environment "local"}})
 
 (defn -handler
+  "Dummy handler for running locally"
   []
   (let [event test-event
         res (run event)]
