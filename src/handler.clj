@@ -9,7 +9,7 @@
   "Function that kicks off the event handling"
   [event]
   (let [response event]
-    response))
+    (str response)))
 
 (deflambdafn deeplake-webhook.run
   [in out ctx]
