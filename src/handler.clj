@@ -3,7 +3,8 @@
     [deeplake-webhook.core]
     [uswitch.lambada.core :refer [deflambdafn]]
     [clojure.java.io :as io]
-    [cheshire.core]))
+    [cheshire.core]
+    [clojure.data.json :as json]))
 
 (defn run
   "Function that kicks off the event handling"
@@ -15,9 +16,8 @@
   [in out ctx]
   (let [event (cheshire.core/parse-stream (io/reader in) true)
         res (run event)]
-    ; (with-open [w (io/writer out)]
-      ; (cheshire.core/generate-string res w))))
-    (str "Hello world")))
+    (with-open [w (io/writer out)]
+      (json/write response w))))
 
 ; Test data for running the handler locally.
 (def test-event
