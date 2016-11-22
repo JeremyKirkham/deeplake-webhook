@@ -16,8 +16,8 @@
   (let [event (cheshire.core/parse-stream (io/reader in) true)
         res (run event)]
     ; (with-open [w (io/writer out)]
-      ; (cheshire.core/generate-string res w)))
-    (println res)))
+      ; (cheshire.core/generate-string res w))))
+    (str "Hello world")))
 
 ; Test data for running the handler locally.
 (def test-event
