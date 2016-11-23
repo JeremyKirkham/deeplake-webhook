@@ -1,20 +1,20 @@
 (ns source.github.core
-  [:use source.core]
-  (:require [deeplake-webhook.event-helpers]))
+  (:require [deeplake-webhook.event-helpers]
+            [source.core]))
 
 ; Constant defining the Github source.
 (def ^:const git "github")
 
-(defmethod process! git
+(defmethod source.core/process! git
   [event]
   "github multimethod!")
 
-(defmethod type? git
+(defmethod source.core/type? git
   [event]
   (let [headers (deeplake-webhook.event-helpers/event-headers event)]
     (:X-GitHub-Event headers)))
 
-(defmethod action? git
+(defmethod source.core/action? git
   [event]
   (let [body (deeplake-webhook.event-helpers/event-body event)]
     (:action body)))

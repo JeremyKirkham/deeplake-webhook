@@ -1,22 +1,24 @@
 (ns deeplake-webhook.core
   (:require
     [deeplake-webhook.event-helpers]
-    [source.core :refer :all]))
+    [source.core]
+    [source.github.core]
+    [source.pivotal.core]))
 
 (defn tag-event!
   "Adds some metadata to the event for handling down the line"
   [event]
   (let [source (:datasource (deeplake-webhook.event-helpers/event-path-params event))
         event (with-meta event {:datasource source})
-        type (type? event)
-        action (action? event)]
+        type (source.core/type? event)
+        action (source.core/action? event)]
     (with-meta event {:datasource source :type type :action action})))
 
 (defn format!
   "Formats an event based on it's source type"
   [event]
   (let [tagged (tag-event! event)]
-    (process! tagged)))
+    (source.core/process! tagged)))
 
 (defn valid?
   "Returns true if event is valid, otherwise false"

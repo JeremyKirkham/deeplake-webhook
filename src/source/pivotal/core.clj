@@ -1,20 +1,20 @@
 (ns source.pivotal.core
-  [:use source.core]
-  (:require [deeplake-webhook.event-helpers]))
+  (:require [deeplake-webhook.event-helpers]
+            [source.core]))
 
 ; Constant defining the PivotalTracker source.
 (def ^:const piv "pivotal")
 
-(defmethod process! piv
+(defmethod source.core/process! piv
   [event]
   "pivotal multimethod!")
 
-(defmethod type? piv
+(defmethod source.core/type? piv
   [event]
   (let [body (deeplake-webhook.event-helpers/event-body event)]
     (:kind body)))
 
-(defmethod action? piv
+(defmethod source.core/action? piv
   [event]
   (let [body (deeplake-webhook.event-helpers/event-body event)]
     (:highlight body)))
