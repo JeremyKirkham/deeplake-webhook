@@ -2,8 +2,8 @@
   (:require [clojure.test :refer :all]
             [warehouse.s3.core :refer :all]))
 
-(def event1 {:datasource_id 1 :timestamp 1476182402392})
-(def event2 {:datasource_id 2 :timestamp 1276200000000})
+(def event1 {:id 1 :timestamp 1476182402392})
+(def event2 {:id 2 :timestamp 1276200000000})
 
 (deftest verify-file-naming
   (testing "verify we are naming files correctly"

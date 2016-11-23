@@ -24,7 +24,7 @@
   (let [timestamp (:timestamp event)
         time (clj-time.coerce/from-long timestamp)
         date (f/unparse custom-formatter time)]
-    (str (:datasource_id event) "/" date "/" (:timestamp event) ".edn")))
+    (str (:id event) "/" date "/" (:timestamp event) ".edn")))
 
 
 (defn map->bytes

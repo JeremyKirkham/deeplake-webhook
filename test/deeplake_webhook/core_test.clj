@@ -6,7 +6,7 @@
 (def test-event
   {:body-json {:foo "bar" :action "opened"}
    :params {:path
-              {:datasource_id 1
+              {:id 1
                :secret "foo"
                :datasource "github"}
             :querystring {:id "baz"}

@@ -24,7 +24,7 @@
 (def test-event
   {:body-json {:foo "bar"}
    :params {:path
-              {:datasource_id 1
+              {:id 1
                :secret "foo"
                :datasource "github"}
             :querystring {}

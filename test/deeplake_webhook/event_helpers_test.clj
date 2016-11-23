@@ -8,7 +8,7 @@
 (def test-event
   {:body-json {:foo "bar"}
    :params {:path
-              {:datasource_id 1
+              {:id 1
                :secret "foo"
                :datasource "github"}
             :querystring {:id "baz"}
@@ -26,7 +26,7 @@
 (deftest params-test
   (testing "We get the parameters of the event"
     (is (= (event-params test-event) {:path
-                                         {:datasource_id 1
+                                         {:id 1
                                           :secret "foo"
                                           :datasource "github"}
                                       :querystring {:id "baz"}
@@ -38,7 +38,7 @@
 
 (deftest path-test
   (testing "We get the paramter path variables of the event"
-    (is (= (event-path-params test-event) {:datasource_id 1
+    (is (= (event-path-params test-event) {:id 1
                                            :secret "foo"
                                            :datasource "github"}))))
 
