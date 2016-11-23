@@ -63,9 +63,9 @@
   "Determines if a datasource id is in our system with matching secret"
   [event]
   (let [env (event-environment event)
-        id (:id (event-path-params event))
-        secret (:secret (event-path-params event))
+        id (str (:id (event-path-params event)))
+        secret (str (:secret (event-path-params event)))
         item (config.core/get-item-by-key! (config.core/datasource-table env) id)
-        db-id (:id item)
-        db-secret (:secret item)]
+        db-id (str (:id item))
+        db-secret (str (:secret item))]
     (verify-match id db-id secret db-secret)))
