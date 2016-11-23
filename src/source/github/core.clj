@@ -7,7 +7,7 @@
 
 (defmethod source.core/process! git
   [event]
-  "github multimethod!")
+  event)
 
 (defmethod source.core/type? git
   [event]

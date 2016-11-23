@@ -7,7 +7,7 @@
 
 (defmethod source.core/process! piv
   [event]
-  "pivotal multimethod!")
+  event)
 
 (defmethod source.core/type? piv
   [event]
