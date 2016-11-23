@@ -9,8 +9,9 @@
 (defn run
   "Function that kicks off the event handling"
   [event]
-  (let [response event]
-    response))
+  (if (deeplake-webhook.core/valid? event)
+    (deeplake-webhook.core/process! event)
+    (throw (Exception. (str "403 Forbidden: Please check the webhook URL is correct!")))))
 
 (deflambdafn deeplake-webhook.run
   [in out ctx]

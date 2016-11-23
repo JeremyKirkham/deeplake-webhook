@@ -69,9 +69,3 @@
         db-id (:id item)
         db-secret (:secret item)]
     (verify-match id db-id secret db-secret)))
-
-(defn tag-event!
-  "Adds some metadata to the event for handling down the line"
-  [event]
-  (let [source (:datasource (event-path-params event))]
-    (with-meta event {:datasource source})))

@@ -69,8 +69,3 @@
     (is (= (verify-match 1 1 "foo" "bar") false)))
   (testing "We handle invalid events when ids and secrets don't match"
     (is (= (verify-match 1 3 "baz" "bar") false))))
-
-(deftest metadata-test
-  (testing "We tag our event with the datasource"
-    (let [tagged (tag-event! test-event)]
-      (is (= (meta tagged) {:datasource "github"})))))
