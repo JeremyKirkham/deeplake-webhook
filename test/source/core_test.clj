@@ -21,5 +21,5 @@
   (testing "We dispatch our event depending on the tagged metadata"
     (let [tagged (deeplake-webhook.core/tag-event! test-event)
           tagged-piv (deeplake-webhook.core/tag-event! test-event-piv)]
-      (is (= (process! tagged) "github multimethod!"))
-      (is (= (process! tagged-piv) "pivotal multimethod!")))))
+      (is (= (process! tagged) test-event))
+      (is (= (process! tagged-piv) test-event-piv)))))
