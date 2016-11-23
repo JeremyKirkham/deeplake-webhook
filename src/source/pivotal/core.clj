@@ -1,5 +1,6 @@
 (ns source.pivotal.core
-  [:use source.core])
+  [:use source.core]
+  (:require [deeplake-webhook.event-helpers]))
 
 ; Constant defining the PivotalTracker source.
 (def ^:const piv "pivotal")
