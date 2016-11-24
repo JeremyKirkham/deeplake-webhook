@@ -68,7 +68,6 @@
         id (:id (event-path-params event))
         secret (:secret (event-path-params event))
         item (config.core/get-item-by-key! (config.core/datasource-table env) id)
-        db-id (:id item)
         db-secret (:secret item)]
     (verify-match secret db-secret)))
 
