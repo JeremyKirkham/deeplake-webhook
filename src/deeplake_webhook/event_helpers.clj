@@ -58,8 +58,8 @@
 
 (defn verify-match
   "Checks an event id and secret match what we've got in dynamo"
-  [id db-id secret db-secret]
-  (and (= (str id) (str db-id)) (= (str secret) (str db-secret))))
+  [secret db-secret]
+  (= (str secret) (str db-secret)))
 
 (defn valid-event?
   "Determines if a datasource id is in our system with matching secret"
@@ -70,7 +70,7 @@
         item (config.core/get-item-by-key! (config.core/datasource-table env) id)
         db-id (:id item)
         db-secret (:secret item)]
-    (verify-match id db-id secret db-secret)))
+    (verify-match secret db-secret)))
 
 (defn event-hash
   "Returns the hash of an event body"
