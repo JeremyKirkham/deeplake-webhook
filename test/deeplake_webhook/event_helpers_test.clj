@@ -62,7 +62,8 @@
 
 (deftest verify-match-test
   (testing "We only verify valid events"
-    (is (= (verify-match 1 1 "foo" "foo") true)))
+    (is (= (verify-match 1 1 "foo" "foo") true))
+    (is (= (verify-match "1" 1 "foo" "foo") true)))
   (testing "We handle invalid events when ids don't match"
     (is (= (verify-match 1 2 "foo" "foo") false)))
   (testing "We handle invalid events when secrets don't match"
