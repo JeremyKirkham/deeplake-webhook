@@ -7,7 +7,7 @@
     [cheshire.core]))
 
 (defn generate-timestamp
-  "Generates a timestamp for an event"
+  "Generates a timestamp for an event in milliseconds"
   []
   (c/to-long (t/now)))
 
