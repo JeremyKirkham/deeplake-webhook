@@ -35,7 +35,7 @@
   (let [f (format! event)
         e (h/event-environment f)
         m (meta f)
-        i {:datasource_id (Integer. (:id (h/event-path-params f)))
+        i {:datasource_id (Integer. (:datasource_id f))
            :timestamp (:timestamp f)
            :type (:type m)
            :action (:action m)
