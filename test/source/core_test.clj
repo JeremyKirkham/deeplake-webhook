@@ -15,7 +15,7 @@
    :stage-variables {:environment "staging"}})
 
 (def test-event-piv
- {:params {:path {:datasource "pivotal"}}})
+ {:params {:path {:datasource "pivotaltracker"}}})
 
 (deftest multimethod-handler-test
   (testing "We dispatch our event depending on the tagged metadata"

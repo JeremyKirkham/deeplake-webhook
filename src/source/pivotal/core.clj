@@ -3,7 +3,7 @@
             [source.core]))
 
 ; Constant defining the PivotalTracker source.
-(def ^:const piv "pivotal")
+(def ^:const piv "pivotaltracker")
 
 (defmethod source.core/process! piv
   [event]
