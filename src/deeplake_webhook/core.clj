@@ -42,4 +42,5 @@
            :hash (:hash m)
            :filename (warehouse.s3.core/generate-title f)}]
     (config.core/record-event! (config.core/event-table e) i)
+    (warehouse.s3.core/record-event! (warehouse.s3.core/event-bucket e) f)
     f))

@@ -37,11 +37,10 @@
 ; do stuff.
 (defn record-event!
   "Records the event in S3"
-  [environment event]
+  [bucket event]
   (let [bytes (map->bytes event)]
     (put-object config.core/aws-creds
-                :bucket-name (event-bucket environment)
-                :metadata {:server-side-encryption "AES256"}
+                :bucket-name bucket
                 :key (generate-title event)
                 :input-stream (io/input-stream bytes)
                 :metadata {:content-length (count bytes)})))
