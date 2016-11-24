@@ -36,7 +36,7 @@
         e (h/event-environment f)
         m (meta f)
         i {:datasource_id (Integer. (:id (h/event-path-params f)))
-           :timestamp (Integer. (:timestamp f))
+           :timestamp (:timestamp f)
            :type (:type m)
            :action (:action m)
            :hash (:hash m)
