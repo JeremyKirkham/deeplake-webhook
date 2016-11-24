@@ -69,3 +69,7 @@
     (is (= (verify-match 1 1 "foo" "bar") false)))
   (testing "We handle invalid events when ids and secrets don't match"
     (is (= (verify-match 1 3 "baz" "bar") false))))
+
+(deftest hash-test
+  (testing "We generate a hash of an event body"
+    (is (= (event-hash test-event) "a5e744d0164540d33b1d7ea616c28f2fa97e754a"))))

@@ -2,7 +2,9 @@
   (:require
     [config.core]
     [clj-time.core :as t]
-    [clj-time.coerce :as c]))
+    [clj-time.coerce :as c]
+    [pandect.algo.sha1]
+    [cheshire.core]))
 
 (defn generate-timestamp
   "Generates a timestamp for an event"
@@ -69,3 +71,9 @@
         db-id (str (:id item))
         db-secret (str (:secret item))]
     (verify-match id db-id secret db-secret)))
+
+(defn event-hash
+  "Returns the hash of an event body"
+  [event]
+  (let [body (event-body event)]
+    (pandect.algo.sha1/sha1 (cheshire.core/generate-string body))))

@@ -8,6 +8,7 @@
                  [uswitch/lambada                       "0.1.2"]
                  [cheshire                              "5.6.3"]
                  [clj-time                              "0.12.0"]
+                 [pandect                               "0.6.1"]
                  [com.amazonaws/aws-lambda-java-core    "1.1.0"]
                  [com.amazonaws/aws-java-sdk-core       "1.11.40"]
                  [com.amazonaws/aws-java-sdk-s3         "1.11.40"]

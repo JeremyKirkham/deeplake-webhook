@@ -11,8 +11,9 @@
   (let [source (:datasource (deeplake-webhook.event-helpers/event-path-params event))
         event (with-meta event {:datasource source})
         type (source.core/type? event)
-        action (source.core/action? event)]
-    (with-meta event {:datasource source :type type :action action})))
+        action (source.core/action? event)
+        hash (deeplake-webhook.event-helpers/event-hash event)]
+    (with-meta event {:datasource source :type type :action action :hash hash})))
 
 (defn format!
   "Formats an event based on it's source type"

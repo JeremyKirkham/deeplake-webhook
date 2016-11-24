@@ -16,4 +16,4 @@
 (deftest metadata-test
   (testing "We tag our event with the datasource"
     (let [tagged (tag-event! test-event)]
-      (is (= (meta tagged) {:datasource "github", :type "foo", :action "opened"})))))
+      (is (= (meta tagged) {:datasource "github", :type "foo", :action "opened", :hash "e9fff00d0cefaef5617c34f469a9ca6628e599d0"})))))
