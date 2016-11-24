@@ -20,9 +20,9 @@
 (defn format!
   "Formats an event based on it's source type"
   [event]
-  (let [tagged (tag-event! event)
-        tagged (merge tagged {:timestamp (h/generate-timestamp)})]
-    (source.core/process! tagged)))
+  (let [t (tag-event! event)
+        t (merge t {:datasource_id (:id (h/event-path-params t)) :timestamp (h/generate-timestamp)})]
+    (source.core/process! t)))
 
 (defn valid?
   "Returns true if event is valid, otherwise false"
