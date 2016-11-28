@@ -14,8 +14,9 @@
         event (with-meta event {:datasource source})
         type (source.core/type? event)
         action (source.core/action? event)
+        user (source.core/user? event)
         hash (h/event-hash event)]
-    (with-meta event {:datasource source :type type :action action :hash hash})))
+    (with-meta event {:datasource source :type type :action action :user user :hash hash})))
 
 (defn format!
   "Formats an event based on it's source type"
@@ -39,6 +40,7 @@
            :timestamp (:timestamp f)
            :type (:type m)
            :action (:action m)
+           :user (:user m)
            :hash (:hash m)
            :filename (warehouse.s3.core/generate-title f)}]
     (config.core/record-event! (config.core/event-table e) i)

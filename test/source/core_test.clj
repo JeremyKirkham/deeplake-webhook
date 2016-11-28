@@ -5,7 +5,7 @@
             [deeplake-webhook.core]))
 
 (def test-event
-  {:body-json {:foo "bar" :action "opened"}
+  {:body-json {:foo "bar" :action "opened" :user {:login "JeremyKirkham"}}
    :params {:path
               {:id 1
                :secret "foo"

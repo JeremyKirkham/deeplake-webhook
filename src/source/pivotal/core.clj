@@ -18,3 +18,8 @@
   [event]
   (let [body (deeplake-webhook.event-helpers/event-body event)]
     (:highlight body)))
+
+(defmethod source.core/user? piv
+  [event]
+  (let [body (deeplake-webhook.event-helpers/event-body event)]
+    (:name (:performed_by body))))
