@@ -4,7 +4,7 @@
 
 ; Test data for running the handler locally.
 (def test-event
-  {:body-json {:foo "bar" :action "opened" :user {:login "JeremyKirkham"}}
+  {:body-json {:foo "bar" :action "opened" :sender {:login "JeremyKirkham"}}
    :params {:path
               {:id 1
                :secret "foo"
@@ -20,4 +20,4 @@
                             :type "foo"
                             :action "opened"
                             :user "JeremyKirkham"
-                            :hash "76fd516fcb63c13f0e241897af87977701effd9c"})))))
+                            :hash "1d52bfd46a74520b83ab9c6d9a9fc867935a3372"})))))

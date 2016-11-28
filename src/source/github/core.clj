@@ -22,4 +22,4 @@
 (defmethod source.core/user? git
   [event]
   (let [body (deeplake-webhook.event-helpers/event-body event)]
-    (:login (:user body))))
+    (:login (:sender body))))
