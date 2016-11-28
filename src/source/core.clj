@@ -8,3 +8,6 @@
 
 ; Dispatch handler for returning the event action.
 (defmulti action? (fn [e] (:datasource (meta e))))
+
+; Dispatch handler for returning the event user.
+(defmulti user? (fn [e] (:datasource (meta e))))

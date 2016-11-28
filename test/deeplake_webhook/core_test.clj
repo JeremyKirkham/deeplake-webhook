@@ -4,7 +4,7 @@
 
 ; Test data for running the handler locally.
 (def test-event
-  {:body-json {:foo "bar" :action "opened"}
+  {:body-json {:foo "bar" :action "opened" :user {:login "JeremyKirkham"}}
    :params {:path
               {:id 1
                :secret "foo"
@@ -16,4 +16,8 @@
 (deftest metadata-test
   (testing "We tag our event with the datasource"
     (let [tagged (tag-event! test-event)]
-      (is (= (meta tagged) {:datasource "github", :type "foo", :action "opened", :hash "e9fff00d0cefaef5617c34f469a9ca6628e599d0"})))))
+      (is (= (meta tagged) {:datasource "github"
+                            :type "foo"
+                            :action "opened"
+                            :user "JeremyKirkham"
+                            :hash "76fd516fcb63c13f0e241897af87977701effd9c"})))))
